@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+echo "This is an error" >&2
 /**
  * main - prints exactly and that piece of art
  * is useful" - Dora Korpar, 2015-10-19
