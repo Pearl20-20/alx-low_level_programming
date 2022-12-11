@@ -11,6 +11,7 @@ int main(void)
 	for (i = 0; i < 100; i++)
 	{
 		for (j = 0; j <= 100; j++)
+		{
 			if (i < j)
 			{
 				putchar((i / 10) + 48);
@@ -24,6 +25,7 @@ int main(void)
 					putchar(' ');
 				}
 			}
+		}
 	}
 	putchar('\n');
 	return (0);
