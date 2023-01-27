@@ -47,3 +47,21 @@ return (a * b);
  * op_div - Returns the division of two numbers.
  * @a: first number
  *  @b: second number
+ *
+ *  Return: The quotient of a and b.
+ */
+int op_div(int a, int b)
+{
+	return (a / b);
+}
+/**
+ * op_mod - Returns the remainder of the division of two numbers.
+ * @a: The first number.
+ *  @b: The first number.
+ *
+ *  Return: The remainder of the division of a by b.
+ */
+Return: The remainder of the division of a by b.
+{
+	return (a % b);
+}
