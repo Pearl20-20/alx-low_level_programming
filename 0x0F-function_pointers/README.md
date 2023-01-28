@@ -1,0 +1,2 @@
+understanding functions and pointers
+
