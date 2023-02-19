@@ -1,58 +1,43 @@
+#include "3-calc.h"
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <string.h>
 /**
- * op_add - This function returns the sum of a and b
- * @a: The first int to add
- * @b: The second int to add
- * Return: The integer sum of both a and b
-*/
-
-int op_add(int a, int b)
-{
-	return (a + b);
-}
-
-/**
- * op_sub - This function returns the difference of a and b
- * @a: The first difference operator
- * @b: The second difference operator
- * Return: The difference between a and b
+ * main - This program performs simple mathematical computations
+ * @argc: The number of arguments passed from the command line
+ * @argv: An array containing the arguments passed from the command line
+ * Return: 0 if successful, 98 for incorrect number of arguments,
+ * 100 for error of division by 0
  */
-int op_sub(int a, int b)
-{
-	return (a - b);
-}
 
-/**
- * op_mul - This function returns the product of a and b
- * @a: The first int to multiply
- * @b: The second int to multiply
- * Return: The product of both a and b
- */
-int op_mul(int a, int b)
+int main(int argc, char *argv[])
 {
-	return (a * b);
-}
+	char *s, operator;
+	int a, b, ans;
+	int (*p)(int, int);
 
-/**
- * op_div - This function returns the result of the division of a by b
- * @a: The int dividend
- *
- * @b: The int divisor
- * Return: The quotient without remainder of a divided by b
- */
-int op_div(int a, int b)
-{
-	return (a / b);
-}
-
-/**
- * op_mod - This function returns the remainder of the division of a by b
- * @a: The int dividend
- * @b: The int divisor
- * Return: The remainder from the quotient of a divided by b
- */
-int op_mod(int a, int b)
-{
-	return (a % b);
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	operator = argv[2][0];
+	if ((operator != '*' && operator != '+' && operator != '-'
+	     && operator != '/'  && operator != '%') || argv[2][1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	if ((operator == '/' || operator == '%') && b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	s = argv[2];
+	p = get_op_func(s);
+	ans = (*p)(a, b);
+	printf("%d\n", ans);
+	return (0);
 }

@@ -1,25 +1,43 @@
 #include "3-calc.h"
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 /**
- * get_op_func - selects the correct function to perform
- * the operation asked by the user. You’re not allowed
- * to declare any other function.
- * @s: operator passed as argument
- * Return: A pointer to the function corresponding to
- * the operator given in parameter
+ * main - This program performs simple mathematical computations
+ * @argc: The number of arguments passed from the command line
+ * @argv: An array containing the arguments passed from the command line
+ * Return: 0 if successful, 98 for incorrect number of arguments,
+ * 100 for error of division by 0
  */
-int (*get_op_func(char *s))(int, int)
-{
-	op_t ops[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL}
-	};
-	while (ops[i].op != NULL && *(ops[i].op) != *s)
-		i++;
 
-	return (ops[i].f);
+int main(int argc, char *argv[])
+{
+	char *s, operator;
+	int a, b, ans;
+	int (*p)(int, int);
+
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	operator = argv[2][0];
+	if ((operator != '*' && operator != '+' && operator != '-'
+	     && operator != '/'  && operator != '%') || argv[2][1] != '\0')
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	if ((operator == '/' || operator == '%') && b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	s = argv[2];
+	p = get_op_func(s);
+	ans = (*p)(a, b);
+	printf("%d\n", ans);
+	return (0);
 }

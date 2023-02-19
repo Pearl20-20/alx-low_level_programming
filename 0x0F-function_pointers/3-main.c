@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 /**
  * main - This program performs simple mathematical computations
  * @argc: The number of arguments passed from the command line
@@ -24,7 +23,7 @@ int main(int argc, char *argv[])
 	}
 	operator = argv[2][0];
 	if ((operator != '*' && operator != '+' && operator != '-'
-				&& operator != '/'  && operator != '%') || argv[2][1] != '\0')
+	     && operator != '/'  && operator != '%') || argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
