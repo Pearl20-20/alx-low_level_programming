@@ -1,0 +1,1 @@
+Makefiles are a popular way to manage the build process of software projects. They are used in conjunction with the make utility to automatically build executable programs from source code files. Makefiles consist of rules that specify dependencies between files and the commands to compile and link them.
