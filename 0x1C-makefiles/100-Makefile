@@ -1,3 +1,4 @@
+# Makefile variables
 CC = gcc
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)

@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 """
- Calculate the perimeter of the island.
+Calculate island perimeter
 """
+
+
 def island_perimeter(grid):
     """
-     p = 0
+    loops through the list and increments perimeter
+    when conditions are met
+    """
+    p = 0
     r = 0
     c = 0
 
